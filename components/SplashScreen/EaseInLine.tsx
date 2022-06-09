@@ -4,7 +4,7 @@ export const EaseInLine = () => {
   const [windowWidth, setWindowWidth] = useState(2000);
 
   useEffect(() => {
-    setWindowWidth(Math.max(window.innerWidth, window.outerHeight));
+    setWindowWidth(Math.max(window.innerWidth));
     return () => {
       setWindowWidth(0);
     };
@@ -23,7 +23,7 @@ export const EaseInLine = () => {
           stiffness: 400,
         },
       }}
-      className="h-2 w-96 mx-auto bg-primary-light shadow-lg rounded"
+      className="h-2 w-72 sm:w-96 mx-auto bg-primary-light shadow-lg rounded"
     ></motion.div>
   );
 };

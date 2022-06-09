@@ -6,7 +6,7 @@ export const SplashScreen = () => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
+    setWindowWidth(Math.max(window.innerWidth, window.outerWidth));
     return () => {
       setWindowWidth(0);
     };
@@ -26,7 +26,7 @@ export const SplashScreen = () => {
       }}
       className="h-screen w-screen absolute top-0 left-0 bg-primary-dark flex content-center items-center justify-center"
     >
-      <motion.h1 className="text-center text-6xl font-bold text-white">WELCOME!</motion.h1>
+      <motion.h1 className="text-center sm:text-6xl text-4xl font-bold text-white">WELCOME!</motion.h1>
     </motion.div>
   );
 };

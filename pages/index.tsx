@@ -20,7 +20,7 @@ const Home = () => {
                 stiffness: 100,
               },
             }}
-            className="text-center text-5xl font-bold text-primary-dark mb-4"
+            className="text-center text-4xl  sm:text-5xl font-bold text-primary-dark mb-4"
           >
             Coming Soon!
           </motion.h1>
