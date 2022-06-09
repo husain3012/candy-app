@@ -4,7 +4,7 @@ export const EaseInLine = () => {
   const [windowWidth, setWindowWidth] = useState(2000);
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
+    setWindowWidth(Math.max(window.innerWidth, window.outerHeight));
     return () => {
       setWindowWidth(0);
     };
