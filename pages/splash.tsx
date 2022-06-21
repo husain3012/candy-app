@@ -34,7 +34,6 @@ const Splash = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <SplashScreen />
       <div className="h-screen w-screen flex flex-col items-center content-center ">
         <div className="m-auto">
           <motion.h1 initial={{ opacity: 0, y: 50 }} animate={animation} className="text-center text-4xl  sm:text-5xl font-bold text-primary-dark mb-4">

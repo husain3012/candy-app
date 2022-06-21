@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { motion, m, useViewportScroll } from "framer-motion";
 import { ParallaxBanner } from "react-scroll-parallax";
-import { Slide, Fade } from "react-awesome-reveal";
+import { Slide, Fade, JackInTheBox, Zoom } from "react-awesome-reveal";
+import { useMediaQuery } from "react-responsive";
 
-export const SectionOddSm = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string, fallbackColor: string }) => {
+export const SectionOddSm = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
   return (
     <ParallaxBanner
       layers={[
@@ -26,7 +27,38 @@ export const SectionOddSm = ({ background, heading, content, fallbackColor }: { 
           ),
         },
       ]}
-      className=" h-screen w-screen bg-cover "
+      className=" h-screen w-screen bg-cover"
     />
   );
 };
+export const SectionOddLg = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
+  return (
+    <div className="w-full h-screen flex " style={{ backgroundColor: fallbackColor }}>
+      <div className="w-full">
+        <div className="w-full h-full flex justify-center items-center">
+          <Fade triggerOnce >
+            <Slide direction="down">
+              <h1 className="text-5xl text-white">{heading}</h1>
+            </Slide>
+          </Fade>
+        </div>
+      </div>
+
+      <ParallaxBanner
+        layers={[
+          {
+            image: background,
+            speed: -20,
+          },
+        ]}
+      />
+    </div>
+  );
+};
+const OddSection = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
+  // if mobile or tablet
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  return isMobileOrTablet ? <SectionOddSm {...{ background, heading, content, fallbackColor }} /> : <SectionOddLg {...{ background, heading, content, fallbackColor }} />;
+};
+
+export default OddSection;

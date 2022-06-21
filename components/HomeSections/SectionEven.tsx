@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { motion, m, useViewportScroll } from "framer-motion";
 import { ParallaxBanner } from "react-scroll-parallax";
 import { Fade, Slide } from "react-awesome-reveal";
+import { useMediaQuery } from "react-responsive";
 
-export const SectionEvenSm = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string , fallbackColor: string}) => {
+export const SectionEvenSm = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
   return (
     <ParallaxBanner
       layers={[
@@ -30,3 +31,35 @@ export const SectionEvenSm = ({ background, heading, content, fallbackColor }: {
     />
   );
 };
+
+export const SectionEvenLg = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
+  return (
+    <div className="w-full h-screen flex " style={{ backgroundColor: fallbackColor }}>
+      <ParallaxBanner
+        layers={[
+          {
+            image: background,
+            speed: 20,
+          },
+        ]}
+      />
+      <div className="w-full ">
+        <div className="w-full h-full flex justify-center items-center">
+          <Fade triggerOnce>
+            <Slide direction="down">
+              <h1 className="text-5xl text-white ">{heading}</h1>
+            </Slide>
+          </Fade>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const EvenSection = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
+  // if mobile or tablet
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  return isMobileOrTablet ? <SectionEvenSm {...{ background, heading, content, fallbackColor }} /> : <SectionEvenLg {...{ background, heading, content, fallbackColor }} />;
+};
+
+export default EvenSection;
