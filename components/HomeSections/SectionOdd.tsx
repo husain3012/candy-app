@@ -33,12 +33,17 @@ export const SectionOddSm = ({ background, heading, content, fallbackColor }: { 
 };
 export const SectionOddLg = ({ background, heading, content, fallbackColor }: { background: string; heading: string; content: string; fallbackColor: string }) => {
   return (
-    <div className="w-full h-screen flex " style={{ backgroundColor: fallbackColor }}>
-      <div className="w-full">
-        <div className="w-full h-full flex justify-center items-center">
-          <Fade triggerOnce >
+    <div className="w-full h-screen flex" style={{ backgroundColor: fallbackColor }}>
+      <div className="w-full flex  ">
+        <div className="flex flex-col justify-center mx-auto">
+          <Fade triggerOnce>
             <Slide direction="down">
               <h1 className="text-5xl text-white">{heading}</h1>
+            </Slide>
+          </Fade>
+          <Fade triggerOnce>
+            <Slide direction="up">
+              <p className="text-gray-300 max-w-md text-lg  my-12"> {content}</p>
             </Slide>
           </Fade>
         </div>

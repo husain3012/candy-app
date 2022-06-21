@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="fixed z-40  w-screen  h-16 flex bg-black justify-between items-stretch py-2 transition-all" style={{ opacity: opacityState }}></div>
       <div className="fixed z-50 flex w-screen h-16 border-b-[1px] lg:border-0 justify-between items-stretch">
         <div className="flex items-center">
-          <h1 className="text-4xl text-white px-2">Brand</h1>
+          <h1 className="text-4xl text-white px-2 sm:px-12">Brand</h1>
         </div>
         <div className="flex gap-1 sm:gap-4 items-stretch sm:mr-12 mr-4">
           {navItems.map((item) => (

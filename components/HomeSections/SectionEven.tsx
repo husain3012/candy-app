@@ -43,11 +43,16 @@ export const SectionEvenLg = ({ background, heading, content, fallbackColor }: {
           },
         ]}
       />
-      <div className="w-full ">
-        <div className="w-full h-full flex justify-center items-center">
+      <div className="w-full flex  ">
+        <div className="flex flex-col justify-center mx-auto">
           <Fade triggerOnce>
             <Slide direction="down">
-              <h1 className="text-5xl text-white ">{heading}</h1>
+              <h1 className="text-5xl text-white">{heading}</h1>
+            </Slide>
+          </Fade>
+          <Fade triggerOnce>
+            <Slide direction="up">
+              <p className="text-gray-300 max-w-md text-lg  my-12"> {content}</p>
             </Slide>
           </Fade>
         </div>
