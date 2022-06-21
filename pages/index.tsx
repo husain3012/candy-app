@@ -1,33 +1,32 @@
-import { motion } from "framer-motion";
+import { motion, LazyMotion, domAnimation, useViewportScroll } from "framer-motion";
 import React from "react";
-import { SplashScreen, EaseInLine } from "../components/SplashScreen";
-
+import { SectionEvenSm } from "../components/HomeSections/SectionEven";
+import { SectionOddSm } from "../components/HomeSections/SectionOdd";
+import Navbar from "../components/Navbar";
+import { SplashScreen } from "../components/SplashScreen";
 const Home = () => {
   return (
     <div>
       <SplashScreen />
-      <div className="h-screen w-screen flex flex-col items-center content-center ">
-        <div className="m-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{
-              y: 0,
-              opacity: 1,
-              transition: {
-                delay: 1,
-                type: "spring",
-                damping: 10,
-                stiffness: 100,
-              },
-            }}
-            className="text-center text-4xl  sm:text-5xl font-bold text-primary-dark mb-4"
-          >
-            Coming Soon!
-          </motion.h1>
-          <EaseInLine />
-        </div>
-
-      </div>
+      <Navbar />
+      <SectionOddSm
+        fallbackColor=""
+        background="https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+        heading="Lorem Ipsum Dolor Sit"
+        content="lorem ipsum aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      />
+      <SectionEvenSm
+        fallbackColor=""
+        background="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+        heading="Lorem Ipsum Dolor Sit"
+        content="lorem ipsum aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      />
+      <SectionOddSm
+        fallbackColor=""
+        background="https://images.unsplash.com/photo-1600359756098-8bc52195bbf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+        heading="Lorem Ipsum Dolor Sit"
+        content="lorem ipsum aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      />
     </div>
   );
 };
