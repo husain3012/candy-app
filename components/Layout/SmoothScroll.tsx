@@ -5,6 +5,7 @@ export const ScrollContext = React.createContext({});
 
 export default (props: {
   children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+  active: boolean | null | undefined;
 }) => {
   const spacer = useRef(null);
   const container = useRef(null);
@@ -78,12 +79,14 @@ export default (props: {
     if (container.current) blocks.current = [...blocks.current, createBlock(data, container.current)];
   };
 
-  return (
+  return props.active ? (
     <ScrollContext.Provider value={{ addBlock }}>
       <>
         <div ref={spacer} />
         <div ref={container}>{props.children}</div>
       </>
     </ScrollContext.Provider>
+  ) : (
+    <>{props.children}</>
   );
 };

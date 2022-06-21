@@ -5,13 +5,14 @@ import OddSection from "../components/HomeSections/SectionOdd";
 import Navbar from "../components/Navbar";
 import { SplashScreen } from "../components/SplashScreen";
 import SmoothScroll from "../components/Layout/SmoothScroll";
-
+import { useMediaQuery } from "react-responsive";
 const Home = () => {
+  const isBigScreen = useMediaQuery({ query: "(min-width: 1024px)" });
   return (
     <div>
       <SplashScreen>
         <Navbar />
-        <SmoothScroll>
+        <SmoothScroll active={isBigScreen}>
           <OddSection
             fallbackColor="#94073d"
             background="https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
